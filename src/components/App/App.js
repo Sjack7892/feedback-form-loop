@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import Comments from '../Comments/Comments';
+import Feeling from '../Feeling/Feeling';
+import Supported from '../Supported/Supported';
+import Understanding from '../Understanding/Understanding';
 
 class App extends Component {
   render() {
@@ -11,6 +15,10 @@ class App extends Component {
           <h4><i>Don't forget it!</i></h4>
         </header>
         <br/>
+        <Feeling />
+        <Understanding />
+        <Supported />
+        <Comments />
       </div>
     );
   }
