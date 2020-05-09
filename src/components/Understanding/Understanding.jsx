@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
 class Understanding extends Component {
+
+    handleClick = () => {
+        this.props.history.push("/Support");
+    }
+
     render() {
         return (
             <div>
@@ -15,6 +20,8 @@ class Understanding extends Component {
                 <label>4</label>
                 <input type="radio" name="understanding"></input>
                 <label>5</label>
+                <br/>
+                <button onClick={this.handleClick}>Next</button>
             </div>
         )
     }
