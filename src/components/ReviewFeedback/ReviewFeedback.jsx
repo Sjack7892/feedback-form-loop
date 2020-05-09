@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 class ReviewFeedback extends Component {
 
@@ -7,18 +8,31 @@ class ReviewFeedback extends Component {
         
       }
 
+    putFeedback = () => {
+        axios({
+            method: 'POST',
+            url: '/',
+            data: this.props.reduxState
+        }).then(response => {
+            console.log(response);
+        }).catch(error => {
+            console.log(error);
+        })
+    }
+
     handleClick = () => {
         this.props.history.push("/ThankYou");
+        this.putFeedback();
     }
 
     render() {
         return (
             <div>
                 <h1>Review your feedback!</h1>
-                <p>Feeling: {this.props.reduxState[0]} </p>
-                <p>Understanding: {this.props.reduxState[1]} </p>
-                <p>Support: {this.props.reduxState[2]} </p>
-                <p>Comments: {this.props.reduxState[3]} </p>
+                <p>Feeling: {this.props.reduxState.feeling} </p>
+                <p>Understanding: {this.props.reduxState.understanding} </p>
+                <p>Support: {this.props.reduxState.support} </p>
+                <p>Comments: {this.props.reduxState.comments} </p>
                 
                 <button onClick={this.handleClick}>Submit</button>
             </div>
