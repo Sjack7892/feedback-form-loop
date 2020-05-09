@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 
 class Understanding extends Component {
 
     state = {
         value: ''
     }
+
+    componentDidMount() {
+        console.log(this.props.reduxState)
+      }
 
     handleChange = (event) => {
         this.setState({
@@ -13,6 +18,10 @@ class Understanding extends Component {
     }
 
     handleClick = () => {
+        this.props.dispatch({
+            type: 'understandingInput',
+            payload: this.state.value
+        })
         this.props.history.push("/Support");
     }
 
@@ -65,4 +74,6 @@ class Understanding extends Component {
     }
 }
 
-export default Understanding;
+const reduxStateToProps = (reduxState) => ({ reduxState });
+
+export default connect(reduxStateToProps)(Understanding);

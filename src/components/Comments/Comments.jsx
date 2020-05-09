@@ -13,6 +13,10 @@ class Comments extends Component {
     }
 
     handleClick = () => {
+        this.props.dispatch({
+            type: 'commentsInput',
+            payload: this.state.value
+        })
         this.props.history.push("/ReviewFeedback");
     }
 

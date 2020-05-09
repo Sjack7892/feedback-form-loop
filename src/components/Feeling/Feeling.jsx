@@ -6,6 +6,9 @@ class Feeling extends Component {
         value: ''
     }
 
+    componentDidMount() {
+      }
+
     handleChange = (event) => {
         this.setState({
             value: event.target.value
@@ -13,6 +16,10 @@ class Feeling extends Component {
     }
 
     handleClick = () => {
+        this.props.dispatch({
+            type: 'feelingInput',
+            payload: this.state.value
+        })
         this.props.history.push("/Understanding");
         }
 

@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class Support extends Component {
 
     state = {
         value: ''
     }
+
+    componentDidMount() {
+        
+      }
 
     handleChange = (event) => {
         this.setState({
@@ -13,11 +18,16 @@ class Support extends Component {
     }
 
     handleClick = () => {
+        this.props.dispatch({
+            type: 'supportInput',
+            payload: this.state.value
+        })
         this.props.history.push("/Comments");
     }
 
     render() {
         return (
+            // console.log()
             <div>
                 <h1>How well are you being supported?</h1>
                 <p>Value: {this.state.value}</p>
@@ -65,4 +75,6 @@ class Support extends Component {
     }
 }
 
-export default Support;
+const reduxStateToProps = (reduxState) => ({ reduxState });
+
+export default connect(reduxStateToProps)(Support);

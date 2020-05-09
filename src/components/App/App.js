@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import './App.css';
 import Comments from '../Comments/Comments';
 import Feeling from '../Feeling/Feeling';
@@ -8,9 +8,16 @@ import Understanding from '../Understanding/Understanding';
 import ReviewFeedback from '../ReviewFeedback/ReviewFeedback';
 import ThankYou from '../ThankYou/ThankYou';
 import { Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux'
 
 
 class App extends Component {
+
+
+  componentDidMount() {
+    console.log(this.props);
+  }
+
   render() {
     return (
       <div className="App">
@@ -20,11 +27,11 @@ class App extends Component {
         <br/>
         <Switch>
           {/* // render = {(props) => <Order {...props} pizzas={this.state.pizzas} /> } */}
-          <Route exact path="/" component={Feeling} />
-          <Route path="/Understanding" component={Understanding} />
-          <Route path="/Support" component={Support} />
-          <Route path="/Comments" component={Comments} />
-          <Route path="/ReviewFeedback" component={ReviewFeedback} />
+          <Route exact path="/" render = {(props) => <Feeling {...props} dispatch={this.props.dispatch} /> } />
+          <Route path="/Understanding" render = {(props) => <Understanding {...props} dispatch={this.props.dispatch} /> } />
+          <Route path="/Support" render = {(props) => <Support {...props} dispatch={this.props.dispatch} /> } />
+          <Route path="/Comments" render = {(props) => <Comments {...props} dispatch={this.props.dispatch} /> } />
+          <Route path="/ReviewFeedback" render = {(props) => <ReviewFeedback {...props} dispatch={this.props.dispatch} inputInfo={this.reduxState} /> } />
           <Route path="/ThankYou" component={ThankYou} />
           {/* <Route path="/CustomerInfo" render = {(props) => <CustomerInfo {...props} dispatch={this.props.dispatch} /> } />
           <Route path="/checkout" render ={(props) => <Checkout {...props} dispatch={this.props.dispatch}/>}/>
@@ -39,4 +46,14 @@ class App extends Component {
   }
 }
 
-export default App;
+const reduxStateToProps = (reduxState) => ({ reduxState });
+
+// const mapToProps = reduxStore => {
+//   return {
+//       customerInfo: reduxStore.customerInfo,
+//       pizzaInfo: reduxStore.cart,
+//       pizzas: reduxStore.pizzas
+//   }
+
+export default connect(reduxStateToProps)(App);
+
