@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {Button} from '@material-ui/core';
+
 
 class Comments extends Component {
 
@@ -11,19 +13,6 @@ class Comments extends Component {
             value: event.target.value
         })
     }
-
-    // handleClick = () => {
-    //     if (this.state.value === '') {
-    //         this.setState({
-    //             value: 'none'
-    //         })
-    //     }
-    //     this.props.dispatch({
-    //         type: 'commentsInput',
-    //         payload: this.state.value
-    //     })
-    //     this.props.history.push("/ReviewFeedback");
-    // }
 
     handleClickNext = () => {
         if (this.state.value === '') {
@@ -51,8 +40,9 @@ class Comments extends Component {
                 <h1>Any comments you want to leave?</h1>
                 <textarea onChange={this.handleChange.bind(this)}></textarea>
                 <br />
-                <button onClick={this.handleClickBack}>Back</button>
-                <button onClick={this.handleClickNext}>Next</button>
+                <br/>
+                <Button variant="outlined" color="primary" onClick={this.handleClickBack}>Back</Button>
+                <Button variant="contained" color="primary" onClick={this.handleClickNext}>Next</Button>
             </div>
         )
     }

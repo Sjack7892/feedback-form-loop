@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import {Button} from '@material-ui/core';
+
 
 class ReviewFeedback extends Component {
 
@@ -37,8 +39,8 @@ class ReviewFeedback extends Component {
                 <p>Understanding: {this.props.reduxState.understanding} </p>
                 <p>Support: {this.props.reduxState.support} </p>
                 <p>Comments: {this.props.reduxState.comments} </p>
-                <button onClick={this.handleClickBack}>Back</button>
-                <button onClick={this.handleClickNext}>Submit</button>
+                <Button variant="outlined" color="primary" onClick={this.handleClickBack}>Back</Button>
+                <Button variant="contained" color="primary" onClick={this.handleClickNext}>Submit</Button>
             </div>
         )
     }

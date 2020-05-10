@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {Button} from '@material-ui/core';
+
 
 class Feeling extends Component {
 
@@ -38,7 +40,8 @@ class Feeling extends Component {
                 checked={this.state.value === '1'} 
                 onChange={this.handleChange.bind(this)}
                 ></input>
-                <label>1</label>
+                <label>Terrible</label>
+                <span> </span>
                 <input 
                 type="radio" 
                 value ="2" 
@@ -46,20 +49,23 @@ class Feeling extends Component {
                 checked={this.state.value === '2'} 
                 onChange={this.handleChange.bind(this)}
                 ></input>
-                <label>2</label>
+                <label>Not Good</label>
+                <span> </span>
                 <input type="radio" 
                 value ="3" 
                 name="feeling" 
                 checked={this.state.value === '3'} 
                 onChange={this.handleChange.bind(this)}></input>
-                <label>3</label>
+                <label>Okay</label>
+                <span> </span>
                 <input type="radio" 
                 value ="4" 
                 name="feeling" 
                 checked={this.state.value === '4'} 
                 onChange={this.handleChange.bind(this)}
                 ></input>
-                <label>4</label>
+                <label>Good</label>
+                <span> </span>
                 <input 
                 type="radio" 
                 value ="5" 
@@ -67,9 +73,10 @@ class Feeling extends Component {
                 checked={this.state.value === '5'} 
                 onChange={this.handleChange.bind(this)}
                 ></input>
-                <label>5</label>
+                <label>Great</label>
                 <br/>
-                <button onClick={this.handleClickNext}>Next</button>
+                <br/>
+                <Button className="btn" variant="contained" color="primary" onClick={this.handleClickNext}>Next</Button>
             </div>
         )
     }
