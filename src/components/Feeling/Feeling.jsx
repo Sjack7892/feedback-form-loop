@@ -7,7 +7,7 @@ class Feeling extends Component {
     state = {
         value: ''
     }
-
+    // Keeps track of the current value of the input.
     handleChange = (event) => {
         this.setState({
             value: event.target.value
@@ -19,6 +19,7 @@ class Feeling extends Component {
             alert('Please select a value!');
             return;
         }
+        // Sends data to redux store.
         this.props.dispatch({
             type: 'feelingInput',
             payload: this.state.value
@@ -32,42 +33,42 @@ class Feeling extends Component {
                 <h1>How are you feeling today?</h1>
                 <input 
                 type="radio" 
-                value ="1" 
+                value ="Terrible" 
                 name="feeling" 
-                checked={this.state.value === '1'} 
+                checked={this.state.value === 'Terrible'} 
                 onChange={this.handleChange.bind(this)}
                 ></input>
                 <label>Terrible</label>
                 <span> </span>
                 <input 
                 type="radio" 
-                value ="2" 
+                value ="Not Good" 
                 name="feeling" 
-                checked={this.state.value === '2'} 
+                checked={this.state.value === 'Not Good'} 
                 onChange={this.handleChange.bind(this)}
                 ></input>
                 <label>Not Good</label>
                 <span> </span>
                 <input type="radio" 
-                value ="3" 
+                value ="Okay" 
                 name="feeling" 
-                checked={this.state.value === '3'} 
+                checked={this.state.value === 'Okay'} 
                 onChange={this.handleChange.bind(this)}></input>
                 <label>Okay</label>
                 <span> </span>
                 <input type="radio" 
-                value ="4" 
+                value ="Good" 
                 name="feeling" 
-                checked={this.state.value === '4'} 
+                checked={this.state.value === 'Good'} 
                 onChange={this.handleChange.bind(this)}
                 ></input>
                 <label>Good</label>
                 <span> </span>
                 <input 
                 type="radio" 
-                value ="5" 
+                value ="Great" 
                 name="feeling" 
-                checked={this.state.value === '5'} 
+                checked={this.state.value === 'Great'} 
                 onChange={this.handleChange.bind(this)}
                 ></input>
                 <label>Great</label>

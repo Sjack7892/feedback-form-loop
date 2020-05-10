@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-
+// Create reducer
 const firstReducerInitialState = {};
 
 const myReducer = (state = firstReducerInitialState, action) => {
@@ -28,11 +28,13 @@ const myReducer = (state = firstReducerInitialState, action) => {
     return state;
 }
 
-//store with reducer for app
+// Create store for reducer
 const myStore = createStore(myReducer)
 
 ReactDOM.render(
+    // Gives App access to redux store.
     <Provider store={myStore}>
+         {/* Allows Routes to separate pages. */}
          <BrowserRouter>
              <App/>
         </BrowserRouter>

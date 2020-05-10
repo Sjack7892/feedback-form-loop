@@ -13,10 +13,6 @@ import { connect } from 'react-redux'
 
 class App extends Component {
 
-  componentDidMount() {
-    console.log(this.props);
-  }
-
   render() {
     return (
       <div className="App">
@@ -26,6 +22,7 @@ class App extends Component {
         <br />
         <div className="Main">
           <Switch>
+            {/* Setup for separate page routes and passes dispatch prop to other components. */}
             <Route exact path="/" render={(props) => <Feeling {...props} dispatch={this.props.dispatch} />} />
             <Route path="/Understanding" render={(props) => <Understanding {...props} dispatch={this.props.dispatch} />} />
             <Route path="/Support" render={(props) => <Support {...props} dispatch={this.props.dispatch} />} />
@@ -40,6 +37,7 @@ class App extends Component {
   }
 }
 
+// Give App access to reduxState and dispatch.
 const reduxStateToProps = (reduxState) => ({ reduxState });
 
 export default connect(reduxStateToProps)(App);

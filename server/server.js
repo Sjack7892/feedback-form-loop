@@ -26,17 +26,16 @@ app.post('/', (req, res) => {
             res.sendStatus(500);
         });
 });
-// Get feedback from database.
-// app.get('/', (req, res) => {
-//     console.log('hi');
-//     let queryText = `SELECT * FROM "feedback";`;
-//     pool.query(queryText).then((result) => {
-//         res.send(result.rows); 
-//     }).catch((error) => {
-//         console.log(`Error in GET / ${error}`);
-//         res.sendStatus(500);
-//     }); 
-// });
+// Get feedback data from database. 
+app.get('/feedback', (req, res) => {
+    console.log('GET /api/pizza');
+    pool.query('SELECT * from "feedback";').then((result) => {
+        res.send(result.rows);
+    }).catch((error) => {
+        console.log('Error GET /api/pizza', error)
+        res.sendStatus(500);
+    });
+})
 
 /** ---------- START SERVER ---------- **/
 app.listen(PORT, () => {

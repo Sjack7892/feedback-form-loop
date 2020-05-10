@@ -6,6 +6,7 @@ import {Button} from '@material-ui/core';
 
 class ReviewFeedback extends Component {
 
+    // Send new feedback data to server.
     putFeedback = () => {
         axios({
             method: 'POST',
@@ -19,11 +20,14 @@ class ReviewFeedback extends Component {
     }
 
     handleClickNext = () => {
+        // Navigates to ThankYou page.
         this.props.history.push("/ThankYou");
+        // Call putFeedback function.
         this.putFeedback();
     }
 
     handleClickBack = () => {
+        // Navigate to Comments page.
         this.props.history.push("/Comments");
     }
 
@@ -41,6 +45,8 @@ class ReviewFeedback extends Component {
         )
     }
 }
+
+// Give ReviewFeedback access to reduxState and dispatch.
 const reduxStateToProps = (reduxState) => ({ reduxState });
 
 export default connect(reduxStateToProps)(ReviewFeedback);

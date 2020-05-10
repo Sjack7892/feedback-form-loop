@@ -7,7 +7,7 @@ class Understanding extends Component {
     state = {
         value: ''
     }
-
+    // Keeps track of the current value of the input.
     handleChange = (event) => {
         this.setState({
             value: event.target.value
@@ -19,14 +19,17 @@ class Understanding extends Component {
             alert('Please select a value!');
             return;
         }
+        // Sends data to redux store.
         this.props.dispatch({
             type: 'understandingInput',
             payload: this.state.value
         })
+        // Navigates to Support page.
         this.props.history.push("/Support");
     }
 
     handleClickBack = () => {
+        // Navigates to home page.
         this.props.history.push("/");
     }
 
@@ -36,42 +39,42 @@ class Understanding extends Component {
                 <h1>How well are you understanding the content?</h1>
                 <input 
                 type="radio" 
-                value ="1" 
+                value ="Not At All" 
                 name="understanding" 
-                checked={this.state.value === '1'} 
+                checked={this.state.value === 'Not At All'} 
                 onChange={this.handleChange.bind(this)}
                 ></input>
                 <label>Not At All</label>
                 <span> </span>
                 <input 
                 type="radio" 
-                value ="2" 
+                value ="Not Well" 
                 name="understanding" 
-                checked={this.state.value === '2'} 
+                checked={this.state.value === 'Not Well'} 
                 onChange={this.handleChange.bind(this)}
                 ></input>
                 <label>Not Well</label>
                 <span> </span>
                 <input type="radio" 
-                value ="3" 
+                value ="A Little" 
                 name="understanding" 
-                checked={this.state.value === '3'} 
+                checked={this.state.value === 'A Little'} 
                 onChange={this.handleChange.bind(this)}></input>
                 <label>A Little</label>
                 <span> </span>
                 <input type="radio" 
-                value ="4" 
+                value ="Well" 
                 name="understanding" 
-                checked={this.state.value === '4'} 
+                checked={this.state.value === 'Well'} 
                 onChange={this.handleChange.bind(this)}
                 ></input>
                 <label>Well</label>
                 <span> </span>
                 <input 
                 type="radio" 
-                value ="5" 
+                value ="Very Well" 
                 name="understanding" 
-                checked={this.state.value === '5'} 
+                checked={this.state.value === 'Very Well'} 
                 onChange={this.handleChange.bind(this)}
                 ></input>
                 <label>Very Well</label>

@@ -7,7 +7,7 @@ class Comments extends Component {
     state = {
         value: ''
     }
-
+    // Keeps track of the current value of the input. 
     handleChange = (event) => {
         this.setState({
             value: event.target.value
@@ -26,11 +26,12 @@ class Comments extends Component {
                 payload: this.state.value
             })
         }
-      
+        // Navigates to ReviewFeedback page.
         this.props.history.push("/ReviewFeedback");
     }
 
     handleClickBack = () => {
+        // Navigates to Support page.
         this.props.history.push("/Support");
     }
 
