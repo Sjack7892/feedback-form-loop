@@ -16,6 +16,10 @@ class Feeling extends Component {
     }
 
     handleClick = () => {
+        if (this.state.value === '') {
+            alert('Please select a value!');
+            return;
+        }
         this.props.dispatch({
             type: 'feelingInput',
             payload: this.state.value
@@ -27,7 +31,6 @@ class Feeling extends Component {
         return (
             <div>
                 <h1>How are you feeling today?</h1>
-                <p>Value: {this.state.value}</p>
                 <input 
                 type="radio" 
                 value ="1" 

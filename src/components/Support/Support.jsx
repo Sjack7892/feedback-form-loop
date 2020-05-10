@@ -18,6 +18,10 @@ class Support extends Component {
     }
 
     handleClick = () => {
+        if (this.state.value === '') {
+            alert('Please select a value!');
+            return;
+        }
         this.props.dispatch({
             type: 'supportInput',
             payload: this.state.value
@@ -30,7 +34,6 @@ class Support extends Component {
             // console.log()
             <div>
                 <h1>How well are you being supported?</h1>
-                <p>Value: {this.state.value}</p>
                 <input 
                 type="radio" 
                 value ="1" 

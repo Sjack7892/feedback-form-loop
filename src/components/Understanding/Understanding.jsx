@@ -18,6 +18,10 @@ class Understanding extends Component {
     }
 
     handleClick = () => {
+        if (this.state.value === '') {
+            alert('Please select a value!');
+            return;
+        }
         this.props.dispatch({
             type: 'understandingInput',
             payload: this.state.value
@@ -29,7 +33,6 @@ class Understanding extends Component {
         return (
             <div>
                 <h1>How well are you understanding the content?</h1>
-                <p>Value: {this.state.value}</p>
                 <input 
                 type="radio" 
                 value ="1" 

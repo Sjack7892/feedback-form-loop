@@ -12,11 +12,32 @@ class Comments extends Component {
         })
     }
 
+    // handleClick = () => {
+    //     if (this.state.value === '') {
+    //         this.setState({
+    //             value: 'none'
+    //         })
+    //     }
+    //     this.props.dispatch({
+    //         type: 'commentsInput',
+    //         payload: this.state.value
+    //     })
+    //     this.props.history.push("/ReviewFeedback");
+    // }
+
     handleClick = () => {
-        this.props.dispatch({
-            type: 'commentsInput',
-            payload: this.state.value
-        })
+        if (this.state.value === '') {
+            this.props.dispatch({
+                type: 'commentsInput',
+                payload: 'none'
+            })
+        } else {
+            this.props.dispatch({
+                type: 'commentsInput',
+                payload: this.state.value
+            })
+        }
+      
         this.props.history.push("/ReviewFeedback");
     }
 
@@ -24,7 +45,6 @@ class Comments extends Component {
         return (
             <div>
                 <h1>Any comments you want to leave?</h1>
-                <p>Value: {this.state.value}</p>
                 <textarea onChange={this.handleChange.bind(this)}></textarea>
                 <br />
                 <button onClick={this.handleClick}>Next</button>
