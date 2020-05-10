@@ -6,10 +6,6 @@ import {Button} from '@material-ui/core';
 
 class ReviewFeedback extends Component {
 
-    componentDidMount() {
-        
-      }
-
     putFeedback = () => {
         axios({
             method: 'POST',

@@ -6,6 +6,7 @@ import Support from '../Support/Support';
 import Understanding from '../Understanding/Understanding';
 import ReviewFeedback from '../ReviewFeedback/ReviewFeedback';
 import ThankYou from '../ThankYou/ThankYou';
+import Admin from '../Admin/Admin';
 import { Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux'
 
@@ -29,8 +30,9 @@ class App extends Component {
             <Route path="/Understanding" render={(props) => <Understanding {...props} dispatch={this.props.dispatch} />} />
             <Route path="/Support" render={(props) => <Support {...props} dispatch={this.props.dispatch} />} />
             <Route path="/Comments" render={(props) => <Comments {...props} dispatch={this.props.dispatch} />} />
-            <Route path="/ReviewFeedback" render={(props) => <ReviewFeedback {...props} dispatch={this.props.dispatch} inputInfo={this.reduxState} />} />
+            <Route path="/ReviewFeedback" component={ReviewFeedback} />
             <Route path="/ThankYou" component={ThankYou} />
+            <Route path="/Admin" component={Admin} />
           </Switch>
         </div>
       </div>

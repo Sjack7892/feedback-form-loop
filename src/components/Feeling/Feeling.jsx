@@ -8,9 +8,6 @@ class Feeling extends Component {
         value: ''
     }
 
-    componentDidMount() {
-      }
-
     handleChange = (event) => {
         this.setState({
             value: event.target.value

@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
-
+// Send new feedback to database.
 app.post('/', (req, res) => {
     console.log(`In POST / with`, req.body);
     const feedback = req.body;
@@ -26,6 +26,17 @@ app.post('/', (req, res) => {
             res.sendStatus(500);
         });
 });
+// Get feedback from database.
+// app.get('/', (req, res) => {
+//     console.log('hi');
+//     let queryText = `SELECT * FROM "feedback";`;
+//     pool.query(queryText).then((result) => {
+//         res.send(result.rows); 
+//     }).catch((error) => {
+//         console.log(`Error in GET / ${error}`);
+//         res.sendStatus(500);
+//     }); 
+// });
 
 /** ---------- START SERVER ---------- **/
 app.listen(PORT, () => {
