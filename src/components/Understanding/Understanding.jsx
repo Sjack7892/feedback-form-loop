@@ -17,7 +17,7 @@ class Understanding extends Component {
         })
     }
 
-    handleClick = () => {
+    handleClickNext = () => {
         if (this.state.value === '') {
             alert('Please select a value!');
             return;
@@ -27,6 +27,10 @@ class Understanding extends Component {
             payload: this.state.value
         })
         this.props.history.push("/Support");
+    }
+
+    handleClickBack = () => {
+        this.props.history.push("/");
     }
 
     render() {
@@ -71,7 +75,8 @@ class Understanding extends Component {
                 ></input>
                 <label>5</label>
                 <br/>
-                <button onClick={this.handleClick}>Next</button>
+                <button onClick={this.handleClickBack}>Back</button>
+                <button onClick={this.handleClickNext}>Next</button>
             </div>
         )
     }

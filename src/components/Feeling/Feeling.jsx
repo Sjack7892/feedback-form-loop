@@ -15,7 +15,7 @@ class Feeling extends Component {
         })
     }
 
-    handleClick = () => {
+    handleClickNext = () => {
         if (this.state.value === '') {
             alert('Please select a value!');
             return;
@@ -69,7 +69,7 @@ class Feeling extends Component {
                 ></input>
                 <label>5</label>
                 <br/>
-                <button onClick={this.handleClick}>Next</button>
+                <button onClick={this.handleClickNext}>Next</button>
             </div>
         )
     }

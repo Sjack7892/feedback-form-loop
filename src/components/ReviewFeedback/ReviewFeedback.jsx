@@ -20,9 +20,13 @@ class ReviewFeedback extends Component {
         })
     }
 
-    handleClick = () => {
+    handleClickNext = () => {
         this.props.history.push("/ThankYou");
         this.putFeedback();
+    }
+
+    handleClickBack = () => {
+        this.props.history.push("/Comments");
     }
 
     render() {
@@ -33,8 +37,8 @@ class ReviewFeedback extends Component {
                 <p>Understanding: {this.props.reduxState.understanding} </p>
                 <p>Support: {this.props.reduxState.support} </p>
                 <p>Comments: {this.props.reduxState.comments} </p>
-                
-                <button onClick={this.handleClick}>Submit</button>
+                <button onClick={this.handleClickBack}>Back</button>
+                <button onClick={this.handleClickNext}>Submit</button>
             </div>
         )
     }

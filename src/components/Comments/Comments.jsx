@@ -25,7 +25,7 @@ class Comments extends Component {
     //     this.props.history.push("/ReviewFeedback");
     // }
 
-    handleClick = () => {
+    handleClickNext = () => {
         if (this.state.value === '') {
             this.props.dispatch({
                 type: 'commentsInput',
@@ -41,13 +41,18 @@ class Comments extends Component {
         this.props.history.push("/ReviewFeedback");
     }
 
+    handleClickBack = () => {
+        this.props.history.push("/Support");
+    }
+
     render() {
         return (
             <div>
                 <h1>Any comments you want to leave?</h1>
                 <textarea onChange={this.handleChange.bind(this)}></textarea>
                 <br />
-                <button onClick={this.handleClick}>Next</button>
+                <button onClick={this.handleClickBack}>Back</button>
+                <button onClick={this.handleClickNext}>Next</button>
             </div>
         )
     }
