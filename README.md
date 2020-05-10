@@ -1,9 +1,17 @@
-# Project Name
+# Feedback Form
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+This app allows users to give feedback on their experience. After all questions are answered, a summary of input is displayed. The user is then able to go back and edit responses or submit the feedback to the database.
 
-## Description
+Each page is a separate component so in order to share data between them I used redux. This allowed me to store the user input and display it on the review feedback page. 
 
-Your project description goes here. What problem did you solve? How did you solve it?
+![](public/images/screenshot1.png)
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+![](public/images/screenshot2.png)
+
+## Prerequisites
+
+- Node
+
+## Built With
+
+- React
