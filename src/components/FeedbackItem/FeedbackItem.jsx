@@ -10,7 +10,12 @@ class FeedbackItem extends Component {
     render() {
         return (
             <div>
-                <p>{this.props.feedbackObject.feeling}, {this.props.feedbackObject.understanding}, {this.props.feedbackObject.support}, {this.props.feedbackObject.comments}</p>
+                <p>
+                {this.props.feedbackObject.feeling}, 
+                {this.props.feedbackObject.understanding}, 
+                {this.props.feedbackObject.support}, 
+                {this.props.feedbackObject.comments}
+                </p>
             </div>
         )
     }

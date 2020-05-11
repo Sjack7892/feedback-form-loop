@@ -87,6 +87,8 @@ class Understanding extends Component {
         )
     }
 }
+
+// Give Understanding access to reduxState and dispatch.
 const reduxStateToProps = (reduxState) => ({ reduxState });
 
 export default connect(reduxStateToProps)(Understanding);

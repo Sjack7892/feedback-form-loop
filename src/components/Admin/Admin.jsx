@@ -43,6 +43,7 @@ class Admin extends Component {
     }
 }
 
+// Give Admin access to reduxState and dispatch.
 const reduxStateToProps = (reduxState) => ({ reduxState });
 
 export default connect(reduxStateToProps)(Admin);

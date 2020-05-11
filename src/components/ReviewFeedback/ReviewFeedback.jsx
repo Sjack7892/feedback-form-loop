@@ -7,7 +7,7 @@ import {Button} from '@material-ui/core';
 class ReviewFeedback extends Component {
 
     // Send new feedback data to server.
-    putFeedback = () => {
+    postFeedback = () => {
         axios({
             method: 'POST',
             url: '/',
@@ -23,7 +23,7 @@ class ReviewFeedback extends Component {
         // Navigates to ThankYou page.
         this.props.history.push("/ThankYou");
         // Call putFeedback function.
-        this.putFeedback();
+        this.postFeedback();
     }
 
     handleClickBack = () => {

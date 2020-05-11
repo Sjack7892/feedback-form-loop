@@ -50,6 +50,7 @@ class Comments extends Component {
     }
 }
 
+// Give Comments access to reduxState and dispatch.
 const reduxStateToProps = (reduxState) => ({ reduxState });
 
 export default connect(reduxStateToProps)(Comments);
