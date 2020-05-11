@@ -21,7 +21,7 @@ class Admin extends Component {
                 })
             })
             .catch(error => {
-                console.log("error in getPizzas GET", error);
+                console.log(error);
             });
     };
 

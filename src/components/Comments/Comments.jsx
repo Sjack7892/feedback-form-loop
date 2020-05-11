@@ -8,6 +8,10 @@ class Comments extends Component {
     state = {
         value: ''
     }
+
+    componentDidMount() {
+        console.log(this.props);
+    }
     // Keeps track of the current value of the input. 
     handleChange = (event) => {
         this.setState({
