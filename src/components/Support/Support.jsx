@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Button} from '@material-ui/core';
+import { connect } from 'react-redux';
 
 
 class Support extends Component {
@@ -87,5 +88,6 @@ class Support extends Component {
     }
 }
 
+const reduxStateToProps = (reduxState) => ({ reduxState });
 
-export default Support;
+export default connect(reduxStateToProps)(Support);

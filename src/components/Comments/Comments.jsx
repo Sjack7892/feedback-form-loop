@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Button} from '@material-ui/core';
+import { connect } from 'react-redux';
 
 
 class Comments extends Component {
@@ -49,4 +50,6 @@ class Comments extends Component {
     }
 }
 
-export default Comments;
+const reduxStateToProps = (reduxState) => ({ reduxState });
+
+export default connect(reduxStateToProps)(Comments);

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Button} from '@material-ui/core';
+import { connect } from 'react-redux';
 
 
 class Feeling extends Component {
@@ -80,4 +81,6 @@ class Feeling extends Component {
     }
 }
 
-export default Feeling;
+const reduxStateToProps = (reduxState) => ({ reduxState });
+
+export default connect(reduxStateToProps)(Feeling);

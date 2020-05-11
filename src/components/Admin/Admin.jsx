@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import FeedbackItem from '../FeedbackItem/FeedbackItem';
 
 
 class Admin extends Component {
@@ -11,34 +13,36 @@ class Admin extends Component {
     // Request feedback data from server.
     getFeedback = () => {
         axios
-          .get("/feedback")
-          .then(response => {
-            console.log(response.data);
-          })
-          .catch(error => {
-            console.log("error in getPizzas GET", error);
-          });
-      };
+            .get("/feedback")
+            .then(response => {
+                this.props.dispatch({
+                    type: 'feedback',
+                    payload: response.data
+                })
+            })
+            .catch(error => {
+                console.log("error in getPizzas GET", error);
+            });
+    };
 
     render() {
         return (
             <div >
-                <h1>Admin Page</h1>
-                {/* <table>
-                    <thead>
-                        <td>Feeling</td>
-                        <td>Understanding</td>
-                        <td>Support</td>
-                        <td>Comments</td>
-                        <td>Delete</td>
-                    </thead>
-                    <tbody>
-                        
-                    </tbody>
-                </table> */}
+                {this.props.reduxState.map(feedbackObject => {
+                    return (
+
+                        <FeedbackItem
+                            key={feedbackObject.id}
+                            feedbackObject={feedbackObject}
+                        />
+
+                    )
+                })}
             </div>
         )
     }
 }
 
-export default Admin;
+const reduxStateToProps = (reduxState) => ({ reduxState });
+
+export default connect(reduxStateToProps)(Admin);

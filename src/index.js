@@ -3,12 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
-import { BrowserRouter } from 'react-router-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-// Create reducer
-const firstReducerInitialState = {};
+// Creates reducer.
+const firstReducerInitialState = [];
 
 const myReducer = (state = firstReducerInitialState, action) => {
    console.log('in myReducer:',  action)
@@ -24,20 +23,20 @@ const myReducer = (state = firstReducerInitialState, action) => {
     } else if (action.type === 'commentsInput'){
         console.log('adding comments input:', action.payload)
         state = {...state, comments: action.payload}
+    } else if (action.type === 'feedback'){
+        console.log('displaying feedback data:', action.payload)
+        state = action.payload;
     }
     return state;
 }
 
-// Create store for reducer
+// Creates store for reducer.
 const myStore = createStore(myReducer)
 
 ReactDOM.render(
     // Gives App access to redux store.
     <Provider store={myStore}>
-         {/* Allows Routes to separate pages. */}
-         <BrowserRouter>
              <App/>
-        </BrowserRouter>
     </Provider>
     , document.getElementById('root'));
 
